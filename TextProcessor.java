@@ -82,7 +82,6 @@ public class TextProcessor {
      * Hoved means main in norwegian, simply means main method
      * This method prompts for the name of file to be checked and for the pattern to be used
      * Then does the search, counts occurences as well as printing every occurence
-     * Requirement: File must have the same path as this java program
      */
     public void hoved(){
 
