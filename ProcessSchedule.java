@@ -17,13 +17,13 @@ import java.io.*;
 
 public class ProcessSchedule {
 
-    /** Regex patterns (java format)
+    /** Regex patterns 
      *
      * Pattern a)
-     * \\w{2,4}-\\d{3}\\w*-\\w{2,4}
+     * \w{2,4}-\d{3}\w*-\w{2,4}
      *
      * Pattern b)
-     * (CLOSED|Open)\\s\\d{0,2}\\s\\d{0,2}
+     * (CLOSED|Open)\s\d{0,2}\s\d{0,2}
      *
      * Pattern c)
      * \w\D{1,3}-\d\d\d
