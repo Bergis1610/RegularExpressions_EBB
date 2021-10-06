@@ -1,4 +1,3 @@
-
 import java.util.*;
 import java.util.regex.*;
 import java.io.*;
@@ -9,7 +8,7 @@ import java.io.*;
  * This program will have methods to search a PDF converted to a text file
  * And print the patterns found in a new text file.
  * @author Emil Bjørlykke Berglund
- * @verion 1.0
+ * @version 1.0
  * Compiler Project 3
  * CS-322 Compiler Construction
  * Fall 2021
@@ -30,7 +29,10 @@ public class ProcessSchedule {
      *
      */
 
-    //Method to create a file
+    /**
+     * Method to create a file
+     * @param name
+     */
     public static void CreateFile(String name){
         try {
             File myObj = new File(name);
@@ -44,7 +46,13 @@ public class ProcessSchedule {
             e.printStackTrace();
         }
     }
-    //Method to search a given file and return the instances found to be written into another file using another method
+
+    /**
+     * Method to search a given file and return the instances found to be written into another file using another method
+     * @param filename
+     * @param command
+     * @return String
+     */
     public String instanceTextReturner(String filename, String command){
         int count = 0;
         String text = "";
@@ -72,7 +80,12 @@ public class ProcessSchedule {
         println("\nThe number of matches was: " + count);
         return text;
     }
-    //Method to write text to file
+
+    /**
+     * Method to write text to file
+     * @param fileName
+     * @param text
+     */
     public void writeToFile(String fileName, String text){
 
         try {
@@ -85,7 +98,13 @@ public class ProcessSchedule {
             e.printStackTrace();
         }
     }
-    //Method that counts the number of instances of a given command from a file
+
+    /**
+     * Method that counts the number of instances of a given command from a file
+     * @param filename
+     * @param command
+     * @return int
+     */
     public int instanceCounter(String filename, String command){
         int count = 0;
         int tot = 0;
@@ -135,8 +154,15 @@ public class ProcessSchedule {
         return count;
     }
 
-    //Methods for searching the file for pre-set patterns
-    //Pattern for search A: \w{2,4}-\d{3}\w*-\w{2,4}
+    /**
+     * Method for searching the file for pre-set patterns
+     * @param searchedFile
+     * @param newFile
+     *
+     * Pattern for search A: \w{2,4}-\d{3}\w*-\w{2,4}
+     * Pattern for search B: (CLOSED|Open)\s\d{0,2}\s\d{0,2}
+     * Pattern for search C: \w\D{1,3}-\d\d\d
+     */
     public void searchA(String searchedFile, String newFile){
         CreateFile(newFile);
         println("File aquired");
@@ -146,7 +172,6 @@ public class ProcessSchedule {
         writeToFile(newFile, text);
 
     }
-    //Pattern for search B: (CLOSED|Open)\s\d{0,2}\s\d{0,2}
     public void searchB(String searchedFile, String newFile){
         CreateFile(newFile);
         println("File aquired");
@@ -157,13 +182,14 @@ public class ProcessSchedule {
         writeToFile(newFile, text);
 
     }
-    //Pattern for search C: \w\D{1,3}-\d\d\d
     public void searchC(String searchedFile){
         String comm = "\\w\\D{1,3}-\\d\\d\\d";
         instanceCounter(searchedFile, comm);
     }
 
-    //Main method used for prompts which will call one of the three searches
+    /**
+     * Main method used for prompts which will call one of the three searches
+     */
     public void hoved(){
         Scanner scan = new Scanner(System.in);
 
@@ -185,7 +211,7 @@ public class ProcessSchedule {
         println("Please select which method you want to call: ");
         println("Search a) Extracts the course title for each course and saves it to a new text file.");
         println("Search b) Extracts the section that indicates if the course is open or closed, " +
-                "as well as the seats available and filled and saves it to a new text file.");
+                "and number of seats available and filled and saves it to a new text file.");
         println("Search c) counts the number of unique classes that each program offers and prints it out.\n");
 
         done = false;
@@ -266,4 +292,4 @@ public class ProcessSchedule {
     public static void println(){
         System.out.println("");
     }
-}
+}//end of class
