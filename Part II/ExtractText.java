@@ -21,6 +21,7 @@ import java.util.Scanner;
  * javac -g -d "JarFilePath" -cp "NameOfJarFile.jar" "ClassName".java
  * Then run the program using the following command:
  * java -cp "JarFilePath".jar;. "ClassName"
+ * Also make sure that the jar file is in the same directory as the java class
  */
 
 
