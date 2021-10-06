@@ -8,7 +8,7 @@ import java.io.*;
  * This program will use the Regex library to scan and find
  * patterns from the Dracula text downloaded from gutenberg.org
  * @author Emil Bjørlykke Berglund
- * @verion 1.0
+ * @version 1.0
  * Compiler Project 3
  * CS-322 Compiler Construction
  * Fall 2021
@@ -41,7 +41,12 @@ public class TextProcessor {
     //Universal scanner
     public static Scanner scan = new Scanner(System.in);
 
-    //This is the pattern searcher. Any time it finds the pattern, it counts and prints it.
+    /**
+     * This is the pattern searcher. Any time it finds the pattern, it counts and prints it.
+     * @param filename
+     * @param pat
+     * @return int
+     */
     public int instanceFinder(String filename, String pat){
         int count = 0;
 
@@ -78,11 +83,13 @@ public class TextProcessor {
         return count;
     }
 
-    /*
+    /**
      * Hoved means main in norwegian, simply means main method
      * This method prompts for the name of file to be checked and for the pattern to be used
      * Then does the search, counts occurences as well as printing every occurence
-     * Requirement: File must have the same path as this java program
+     *
+     * This method was the original method until I reread the question and made the program
+     * so that you can enter arguments from the command line
      */
     public void hoved(){
 
@@ -110,18 +117,22 @@ public class TextProcessor {
 
     }
 
+    //main
     public static void main(String[]args) {
         TextProcessor tp = new TextProcessor();
 
         String fileName;
         String patty;
 
-        /*
+        /**
          * Checks whether two arguments have been passed at the commandline,
          * if not, then a method will be called so the program can function regardless
          * In other words, its a hybrid method. If two arguments are passed at commandline,
          * then the program will run how its supposed to, but if not, then the program will
          * still function with user prompts and such
+         *
+         * The method tries to find the path to the wanted file and then compiles the pattern entered
+         * and then searches every line for every occurence of the pattern and counts it and prints it.
          */
 
         if(args.length != 2){
