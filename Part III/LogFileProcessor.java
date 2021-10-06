@@ -7,7 +7,7 @@ import java.io.*;
  * LogFileProcessor.java
  * This program will be used to scan log files and store them in hashmaps.
  * @author Emil Bjørlykke Berglund
- * @verion Proto
+ * @version 1.0
  * Compiler Project 3
  * CS-322 Compiler Construction
  * Fall 2021
@@ -24,7 +24,10 @@ public class LogFileProcessor {
      *
      */
 
-    //Method for printing the hashmap line for line with the number of instances and the key
+    /**
+     * Method for printing the hashmap line for line with the number of instances and the key
+     * @param map
+     */
     public void printHashMap(HashMap<String,Integer> map){
 
        Object[]keys = map.keySet().toArray();
@@ -36,7 +39,7 @@ public class LogFileProcessor {
 
     }
 
-    //main method
+    //main
     public static void main(String[]args) {
         //Constructor
         LogFileProcessor f = new LogFileProcessor();
@@ -48,10 +51,6 @@ public class LogFileProcessor {
         if (args.length != 2) {
             println("Error, Please enter two arguments at the command line.");
             return;
-            /*
-            fileName = ("C:\\Users\\Bruker\\IdeaProjects\\ByteCodeTester\\src\\authLog1.txt");
-            printFlag = "2";
-             */
         } else {
             fileName = args[0];
             printFlag = args[1];
